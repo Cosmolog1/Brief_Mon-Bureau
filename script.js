@@ -1,9 +1,9 @@
-let surfaceEl = document.getElementById("surface");
-let nettoyageEl = document.getElementById("nettoyage");
-let resultat = document.getElementById("resultat");
+let surfaceEl = document.getElementById("surface"); // Récupère l’id surface des bureaux.
+let nettoyageEl = document.getElementById("nettoyage"); // Récupère l’id nettoyage des bureaux.
+let resultat = document.getElementById("resultat"); // Récupere l'id resultat
 
 function prixHt(surface, nettoyage, optionVitre) {
-  // 1. Prix de base
+  // 1. Calcul prix de base
   let prixBase = surface * 1.5;
 
   // 2. Majoration selon la fréquence
@@ -15,6 +15,8 @@ function prixHt(surface, nettoyage, optionVitre) {
   return prixOption; // prix HT
 }
 
+// Ecoute de l'évenement click du formulaire avec les valeurs des choix du formulaire
+
 document.getElementById("calcul").addEventListener("click", () => {
   let surface = Number(surfaceEl.value);
   let nettoyage = Number(nettoyageEl.value);
@@ -22,6 +24,7 @@ document.getElementById("calcul").addEventListener("click", () => {
   let optionRadio = document.querySelector(
     "input[name='option_vitre']:checked"
   );
+
   let optionVitre = optionRadio ? Number(optionRadio.value) : 0;
 
   let ht = prixHt(surface, nettoyage, optionVitre);
